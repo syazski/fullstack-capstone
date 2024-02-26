@@ -1,8 +1,11 @@
+import bookstore from '../assets/bookstore.jpg'
+
 function Home() {
 
     return (
       <>
-        <h1>This is the homepage</h1>
+        <h1>Welcome to Buy More Books</h1>
+        <img src={bookstore} /><br/>
       </>
     )
   }
