@@ -1,9 +1,14 @@
 function Register() {
+    
+    const register = (e) => {
+        e.preventDefault();
+        console.log("in register");
+    }
 
     return (
       <>
       <h2>Register to access books</h2>
-      <form>
+      <form onSubmit={register}>
         <label htmlFor="username">Username: </label>
         <input type="text" name="username"/><br />
         <label htmlFor="password">Password: </label>
@@ -14,7 +19,7 @@ function Register() {
         <label htmlFor="lastname">Last Name: </label>
         <input type="text" name="lastname"/><br />
         <br/>
-        <button>Submit</button>
+        <button>Register</button>
       </form>
       </>
     )
