@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRegisterMutation } from '../redux/api';
 
-function Register() {
+function Register(props) {
     const [user, setUser] = useState({
         username: "", 
         password: "", 
@@ -9,13 +9,13 @@ function Register() {
         lastname: "",
         email: ""
         });
+    const [error, setError] = useState(null);
+    const [register] = useRegisterMutation()
     
-    const [register] = useRegisterMutation();
-    
-    const eventHandler = (e) => {
+    const eventHandler = async (e) => {
         e.preventDefault();
-        const {data, error} = register(user);
-        //console.log("in register");
+        const {data, error} = await register(user);
+        //console.log(`data ${JSON.stringify(data)}`);
     }
 
     const onUserInput = (e) => {
