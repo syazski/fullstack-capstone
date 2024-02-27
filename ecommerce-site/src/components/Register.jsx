@@ -14,7 +14,7 @@ function Register() {
     
     const eventHandler = (e) => {
         e.preventDefault();
-        register(user);
+        const {data, error} = register(user);
         //console.log("in register");
     }
 
