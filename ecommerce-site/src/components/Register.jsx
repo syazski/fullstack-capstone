@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRegisterMutation } from '../redux/api';
 
 function Register() {
     const [user, setUser] = useState({
@@ -8,21 +9,24 @@ function Register() {
         lastname: "",
         email: ""
         });
-
-    const register = (e) => {
+    
+    const [register] = useRegisterMutation();
+    
+    const eventHandler = (e) => {
         e.preventDefault();
+        register(user);
         //console.log("in register");
     }
 
     const onUserInput = (e) => {
-        console.log(JSON.stringify(user));
+        //console.log(JSON.stringify(user));
         setUser({...user, [e.target.name]: e.target.value})
     }
 
     return (
       <>
       <h2>Register to access books</h2>
-      <form onSubmit={register}>
+      <form onSubmit={eventHandler}>
         <label htmlFor="username">Username: </label>
         <input 
             type="text" 
