@@ -1,5 +1,13 @@
+import { useState } from 'react';
+
 function Register() {
-    
+    const [{user, setUser}] = useState(
+        {username: "", 
+        password: "", 
+        firstname: "", 
+        lastname: ""
+        });
+
     const register = (e) => {
         e.preventDefault();
         console.log("in register");
