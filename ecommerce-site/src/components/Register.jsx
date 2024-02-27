@@ -5,7 +5,8 @@ function Register() {
         username: "", 
         password: "", 
         firstname: "", 
-        lastname: ""
+        lastname: "",
+        email: ""
         });
 
     const register = (e) => {
@@ -37,6 +38,14 @@ function Register() {
             onChange={onUserInput}
         />
         <br />
+        <label htmlFor="email">Email: </label>
+        <input 
+        type="email" 
+        name="email"
+        value={user.email} 
+        onChange={onUserInput}
+        />
+        <br/>
         <p>More about you</p>
         <label htmlFor="firstname">First Name: </label>
         <input 
@@ -53,7 +62,6 @@ function Register() {
         value={user.lastname} 
         onChange={onUserInput}
         />
-        <br/>
         <br/>
         <button>Register</button>
       </form>
