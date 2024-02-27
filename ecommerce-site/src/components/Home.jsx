@@ -1,11 +1,11 @@
-import bookstore from '../assets/bookstore.jpg'
+import shop from '../assets/shop.jpg'
 
 function Home() {
 
     return (
       <>
-        <h1>Welcome to Buy More Books</h1>
-        <img src={bookstore} /><br/>
+        <h1>Welcome to Buy More Stuff</h1>
+        <img src={shop} /><br/>
       </>
     )
   }
