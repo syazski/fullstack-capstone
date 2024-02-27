@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 function Register() {
-    const [{user, setUser}] = useState(
-        {username: "", 
+    const [user, setUser] = useState({
+        username: "", 
         password: "", 
         firstname: "", 
         lastname: ""
@@ -10,7 +10,12 @@ function Register() {
 
     const register = (e) => {
         e.preventDefault();
-        console.log("in register");
+        //console.log("in register");
+    }
+
+    const onUserInput = (e) => {
+        console.log(JSON.stringify(user));
+        setUser({...user, [e.target.name]: e.target.value})
     }
 
     return (
@@ -18,14 +23,37 @@ function Register() {
       <h2>Register to access books</h2>
       <form onSubmit={register}>
         <label htmlFor="username">Username: </label>
-        <input type="text" name="username"/><br />
+        <input 
+            type="text" 
+            name="username" 
+            value={user.username} 
+            onChange={onUserInput}/>
+        <br/>
         <label htmlFor="password">Password: </label>
-        <input type="password" name="password"/><br />
+        <input 
+            type="password" 
+            name="password"
+            value={user.password} 
+            onChange={onUserInput}
+        />
+        <br />
         <p>More about you</p>
         <label htmlFor="firstname">First Name: </label>
-        <input type="text" name="firstname"/><br />
+        <input 
+        type="text" 
+        name="firstname"
+        value={user.firstname} 
+        onChange={onUserInput}
+        />
+        <br/>
         <label htmlFor="lastname">Last Name: </label>
-        <input type="text" name="lastname"/><br />
+        <input 
+        type="text" 
+        name="lastname"
+        value={user.lastname} 
+        onChange={onUserInput}
+        />
+        <br/>
         <br/>
         <button>Register</button>
       </form>
