@@ -15,7 +15,7 @@ function Register(props) {
     const eventHandler = async (e) => {
         e.preventDefault();
         const {data, error} = await register(user);
-        //console.log(`data ${JSON.stringify(data)}`);
+        console.log(`data ${JSON.stringify(data)}`);
     }
 
     const onUserInput = (e) => {
