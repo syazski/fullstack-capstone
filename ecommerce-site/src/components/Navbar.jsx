@@ -2,9 +2,9 @@ function Nav() {
 
     return (
       <>
-      <p>Homepage</p>
-      <p>Login</p>
-      <p>Cart</p>
+      <div>Homepage</div>
+      <div>Login</div>
+      <div>Cart</div>
       </>
     )
   }
