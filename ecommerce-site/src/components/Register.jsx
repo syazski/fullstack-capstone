@@ -11,11 +11,20 @@ function Register(props) {
         });
     const [error, setError] = useState(null);
     const [register] = useRegisterMutation()
+
+    //console.log(props)
     
     const eventHandler = async (e) => {
         e.preventDefault();
         const {data, error} = await register(user);
-        console.log(`data ${JSON.stringify(data)}`);
+        
+        if(error){
+            setError(error);
+            console.log(`error ${JSON.stringify(error.data)}`);
+        } else {
+            props.setId(data.id)
+            console.log(`data ${JSON.stringify(data.id)}`);
+        }
     }
 
     const onUserInput = (e) => {
@@ -26,6 +35,8 @@ function Register(props) {
     return (
       <>
       <h2>Register to access books</h2>
+      {/*error message*/}
+      {error ? <p>error</p>: <span />}
       <form onSubmit={eventHandler}>
         <label htmlFor="username">Username: </label>
         <input 
