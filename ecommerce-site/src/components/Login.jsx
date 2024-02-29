@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLoginMutation } from '../redux/api';
+import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
     const [user, setUser] = useState({
@@ -9,6 +10,7 @@ function Login(props) {
     
     const [error, setError] = useState(null);
     const [login] = useLoginMutation();
+    const navigate = useNavigate();
     
     const eventHandler = async (e) => {
         e.preventDefault();
@@ -23,6 +25,7 @@ function Login(props) {
         } else {
             props.setToken(data.token)
             //console.log(`data ${JSON.stringify(data.token)}`);
+            navigate("/account");
         }
     }
 
