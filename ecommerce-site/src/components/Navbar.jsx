@@ -1,9 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Nav(props) {
+    const navigate = useNavigate();
 
     const logoutUser = () => {
-      props.setToken(null)
+      props.setToken(null);
+      navigate("/");
     }
     
     if(props.token){
@@ -16,11 +18,11 @@ function Nav(props) {
       );
     } 
     return (
-      <>
+      <nav>
       <NavLink to ="/">Homepage</NavLink>
       <NavLink to ="/login">Login</NavLink>
       <NavLink to ="/register">Register</NavLink>
-      </>
+      </nav>
     )
   }
   

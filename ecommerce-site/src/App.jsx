@@ -11,12 +11,14 @@ function App() {
   const [id, setId] = useState(null);
   const [token, setToken] = useState(null);
 
+  //console.log("token", token)
+
   //console.log("id", id);
   return (
     <div>
     <BrowserRouter>
     <nav>
-      <Nav />
+      <Nav token={token} setToken={setToken} />
     </nav>
       <Routes>
       <Route path="/" element={<Home />} />
