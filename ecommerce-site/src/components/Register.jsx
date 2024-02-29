@@ -35,7 +35,7 @@ function Register(props) {
 
     return (
       <>
-      <h2>Register to access books</h2>
+      <h2>Register to access your cart</h2>
       {/*error message*/}
       {error ? <p>{error}</p>: <span />}
       <form onSubmit={eventHandler}>

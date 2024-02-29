@@ -22,7 +22,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} />} />
-      <Route path="/account" element={<Account/>} />
+      <Route path="/account" element={<Account token={token}/>} />
       </Routes>
     </BrowserRouter>
     </div>
