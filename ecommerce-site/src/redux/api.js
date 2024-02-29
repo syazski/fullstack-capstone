@@ -13,6 +13,13 @@ export const apiSlice = createApi({
                 body: registerUser,  
             }),
         }),
+        login: builder.query({
+            query: (loginUser) => ({
+                url: "/auth/login",
+                method: "POST",
+                body: loginUser,
+            }),
+        }),
     })
 });
 
