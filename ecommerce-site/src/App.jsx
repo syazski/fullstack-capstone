@@ -19,7 +19,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register setId={setId}/>} />
-      <Route path="/auth/login" element={<Login setToken={setToken} />} />
+      <Route path="/login" element={<Login setToken={setToken} />} />
 
       </Routes>
     </BrowserRouter>
