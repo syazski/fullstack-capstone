@@ -1,26 +1,28 @@
 import { useState } from 'react';
+import { useLoginMutation } from '../redux/api';
 
-function Login() {
+function Login(props) {
     const [user, setUser] = useState({
         username: "", 
         password: "", 
-        firstname: "", 
-        lastname: "",
-        email: ""
         });
     
     const [error, setError] = useState(null);
+    const [login] = useLoginMutation();
     
     const eventHandler = async (e) => {
         e.preventDefault();
-        //const {data, error} = await register(user);
+        const {data, error} = await login(user);
         
+        // console.log("data", data);
+        // console.log("error", error);
+
         if(error){
-            //setError(error);
-            //console.log(`error ${JSON.stringify(error.data)}`);
+            setError(error.data);
+            console.log(`error ${JSON.stringify(error.data)}`);
         } else {
-            //props.setId(data.id)
-            //console.log(`data ${JSON.stringify(data.id)}`);
+            props.setToken(data.token)
+            //console.log(`data ${JSON.stringify(data.token)}`);
         }
     }
 
@@ -33,7 +35,7 @@ function Login() {
         <>
         <h2>Login</h2>
         {/*error message*/}
-        {error ? <p>error</p>: <span />}
+        {error ? <p>{error}</p>: <span />}
         <form onSubmit={eventHandler}>
           <label htmlFor="username">Username: </label>
           <input 
