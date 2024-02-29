@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRegisterMutation } from '../redux/api';
+import { useNavigate } from 'react-router-dom';
 
 function Register(props) {
     const [user, setUser] = useState({
@@ -12,6 +13,7 @@ function Register(props) {
     
     const [error, setError] = useState(null);
     const [register] = useRegisterMutation()
+    const navigate = useNavigate();
 
     //console.log(props)
     
@@ -20,15 +22,19 @@ function Register(props) {
         const {data, error} = await register(user);
         
         if(error){
-            setError(error);
+            setError(error.data);
             //console.log(`error ${JSON.stringify(error.data)}`);
         } else {
             props.setId(data.id)
+            navigate("/login");
             //console.log(`data ${JSON.stringify(data.id)}`);
         }
     }
 
     const onUserInput = (e) => {
+        if(error) {
+            setError(null)
+        }
         //console.log(JSON.stringify(user));
         setUser({...user, [e.target.name]: e.target.value})
     }
