@@ -9,6 +9,7 @@ function Register(props) {
         lastname: "",
         email: ""
         });
+    
     const [error, setError] = useState(null);
     const [register] = useRegisterMutation()
 
@@ -20,10 +21,10 @@ function Register(props) {
         
         if(error){
             setError(error);
-            console.log(`error ${JSON.stringify(error.data)}`);
+            //console.log(`error ${JSON.stringify(error.data)}`);
         } else {
             props.setId(data.id)
-            console.log(`data ${JSON.stringify(data.id)}`);
+            //console.log(`data ${JSON.stringify(data.id)}`);
         }
     }
 
@@ -61,7 +62,6 @@ function Register(props) {
         onChange={onUserInput}
         />
         <br/>
-        <p>More about you</p>
         <label htmlFor="firstname">First Name: </label>
         <input 
         type="text" 
