@@ -19,7 +19,7 @@ function Login(props) {
 
         if(error){
             setError(error.data);
-            console.log(`error ${JSON.stringify(error.data)}`);
+            //console.log(`error ${JSON.stringify(error.data)}`);
         } else {
             props.setToken(data.token)
             //console.log(`data ${JSON.stringify(data.token)}`);
