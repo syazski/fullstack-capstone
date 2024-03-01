@@ -1,3 +1,4 @@
+import '../index.css'
 import { useState } from 'react';
 import { useRegisterMutation } from '../redux/api';
 import { useNavigate } from 'react-router-dom';
@@ -41,6 +42,7 @@ function Register(props) {
 
     return (
       <>
+      <div className="register-wrapper">
       <h2>Register to access your cart</h2>
       {/*error message*/}
       {error ? <p>{error}</p>: <span />}
@@ -86,6 +88,7 @@ function Register(props) {
         <br/>
         <button>Register</button>
       </form>
+      </div>
       </>
     )
   }

@@ -18,11 +18,11 @@ function Nav(props) {
       );
     } 
     return (
-      <nav>
+      <div id="navbar">
       <NavLink to ="/">Homepage</NavLink>
       <NavLink to ="/login">Login</NavLink>
-      <NavLink to ="/register">Register</NavLink>
-      </nav>
+      <NavLink to ="/register">Not a member? <strong>Register Now</strong></NavLink>
+      </div>
     )
   }
   

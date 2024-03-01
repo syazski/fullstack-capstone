@@ -36,19 +36,20 @@ function Login(props) {
 
     return (
         <>
+        <div className='login-wrapper'>
         <h2>Login</h2>
         {/*error message*/}
         {error ? <p>{error}</p>: <span />}
         <form onSubmit={eventHandler}>
           <label htmlFor="username">Username: </label>
-          <input 
+          <input
               type="text" 
               name="username" 
               value={user.username} 
               onChange={onUserInput}/>
           <br/>
           <label htmlFor="password">Password: </label>
-          <input 
+          <input
               type="password" 
               name="password"
               value={user.password} 
@@ -57,6 +58,7 @@ function Login(props) {
           <br/>
           <button>Login</button>
         </form>
+        </div>
         </>
       )
   }

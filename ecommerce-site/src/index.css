@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -11,6 +11,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+
+body {
+  font-family: Georgia, serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -22,15 +29,76 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.register-wrapper, .login-wrapper {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+
+#logo-image {
+  width: 50px;
+  margin-right: 5px;
+  margin-left: 10px;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 2em;
 }
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.product-card {
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  overflow: scroll;
+  position: relative;
+}
+
+.product-details {
+  font-family: Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.product-image {
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+  margin: 50px 90px;
+}
+
+button {
+  font-family:Arial, Helvetica, sans-serif;
+  
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  margin-bottom: 20px;
+}
+

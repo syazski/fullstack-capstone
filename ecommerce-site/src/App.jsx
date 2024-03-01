@@ -1,4 +1,5 @@
-import './App.css'
+import './index.css';
+import shop from './assets/icon.png'
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -16,6 +17,9 @@ function App() {
   //console.log("id", id);
   return (
     <div>
+    <div className="logo">
+    <h1><img id='logo-image' src={shop}/>Buymorestuff.com</h1>
+    </div>
     <BrowserRouter>
     <nav>
       <Nav token={token} setToken={setToken} />
