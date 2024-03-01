@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 
 function SingleProduct() {
         let { id } = useParams();
-        const { data={}, error, isLoading } = useProductDetailsQuery({id});
-        console.log(data);
+        const { data, error, isLoading } = useProductDetailsQuery({id});
         if (isLoading) {
                 return <p>Loading...</p>;
         }
@@ -14,6 +13,7 @@ function SingleProduct() {
         }
 
         //console.log(id);
+        //console.log(data);
 
         return ( 
                 <>
@@ -28,8 +28,8 @@ function SingleProduct() {
                         <p><strong>Item:</strong> {product.title}</p>
                         <p><strong>Description:</strong> {product.description}</p>
                         <p><strong>Category:</strong> {product.category}</p>
-                        <p><strong>Price:</strong> {product.price}</p>
-                        <p><strong>Rating:</strong> {product.rating}</p>
+                        <p><strong>Price:</strong>${product.price}</p>
+                        <p><strong>Rating:</strong> {product.rating.rate}</p>
                         <br />
                         <button>Add to Cart</button>
                     </div>
