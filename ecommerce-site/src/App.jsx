@@ -31,7 +31,7 @@ function App() {
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} />} />
       <Route path="/account" element={<Account token={token}/>} />
-      <Route path="/products/:id" element={<SingleProduct productId={productId}/>} />
+      <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
     </BrowserRouter>
     </div>
