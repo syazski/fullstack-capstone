@@ -5,7 +5,7 @@ import "../index.css"
 
 function Home() {
   const {data={}, error, isLoading} = useFetchProductsQuery();
-  console.log(data)
+  //console.log(data)
   const navigate = useNavigate();
 
   if(isLoading) {

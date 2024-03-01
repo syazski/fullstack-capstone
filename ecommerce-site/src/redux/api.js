@@ -22,11 +22,20 @@ export const apiSlice = createApi({
         }),
         fetchProducts: builder.query({
             query: () => "/products",
-        })
-    })
-});
+        }),
+        account: builder.query({
+            query: (token) => ({
+               url: "/users/",
+               headers: {
+                authorization: `Bearer ${token}`,
+                }, 
+            }),
+        }),
+        }),
+    });
 
 export const { 
 useRegisterMutation, 
 useLoginMutation,
-useFetchProductsQuery } = apiSlice;
+useFetchProductsQuery,
+useAccountQuery } = apiSlice;

@@ -10,11 +10,11 @@ function Nav(props) {
     
     if(props.token){
       return (
-      <nav>
+      <div id="navbar">
       <NavLink to ="/">Homepage</NavLink>
       <NavLink to ="/Account">Cart</NavLink>
       <a onClick={logoutUser}>Logout</a>
-      </nav>
+      </div>
       );
     } 
     return (
