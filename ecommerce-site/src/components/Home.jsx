@@ -27,7 +27,7 @@ if(error) {
                         <img src={product.image} alt={product.title} className="product-image" />
                     <div className="product-details">
                         <p><strong>Item:</strong> {product.title}</p>
-                        <button /*onClick={() => navigate(`/books/${book.id}`)}*/>See Details</button>
+                        <button onClick={() => navigate(`/products/${product.id}`)}>See Details</button>
                     </div>
                     </div>
                 )

@@ -7,10 +7,12 @@ import Account from './components/Account';
 import Nav from './components/Navbar';
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SingleProduct from './components/SingleProduct';
 
 function App() {
   const [id, setId] = useState(null);
   const [token, setToken] = useState(null);
+  const [productId, setProductId] = useState(null);
 
   //console.log("token", token)
   //console.log("id", id);
@@ -29,6 +31,7 @@ function App() {
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} />} />
       <Route path="/account" element={<Account token={token}/>} />
+      <Route path="/products/:id" element={<SingleProduct productId={productId}/>} />
       </Routes>
     </BrowserRouter>
     </div>

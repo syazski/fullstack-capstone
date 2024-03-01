@@ -31,11 +31,17 @@ export const apiSlice = createApi({
                 }, 
             }),
         }),
-        }),
-    });
+        productDetails: builder.query({
+            query: (id) => ({
+                url:`/products/${id}`,
+            })
+        })
+    }),
+});
 
 export const { 
 useRegisterMutation, 
 useLoginMutation,
 useFetchProductsQuery,
-useAccountQuery } = apiSlice;
+useAccountQuery,
+useProductDetailsQuery } = apiSlice;
