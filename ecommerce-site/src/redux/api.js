@@ -32,7 +32,7 @@ export const apiSlice = createApi({
             }),
         }),
         productDetails: builder.query({
-            query: (id) => ({
+            query: ({id}) => ({
                 url:`/products/${id}`,
             })
         })
