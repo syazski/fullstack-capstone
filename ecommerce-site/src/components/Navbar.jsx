@@ -12,7 +12,8 @@ function Nav(props) {
       return (
       <div id="navbar">
       <NavLink to ="/">Homepage</NavLink>
-      <NavLink to ="/Account">Cart</NavLink>
+      <NavLink to ="/Account">Account</NavLink>
+      <NavLink to ="/Cart">Cart</NavLink>
       <a onClick={logoutUser}>Logout</a>
       </div>
       );

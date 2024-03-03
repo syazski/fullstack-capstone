@@ -3,18 +3,18 @@ import { useLoginMutation } from '../redux/api';
 import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
-    const [user, setUser] = useState({
+    const [userInfo, setUserInfo] = useState({
         username: "", 
         password: "", 
         });
-    
+
     const [error, setError] = useState(null);
     const [login] = useLoginMutation();
     const navigate = useNavigate();
     
     const eventHandler = async (e) => {
         e.preventDefault();
-        const {data, error} = await login(user);
+        const {data, error} = await login(userInfo);
         
         // console.log("data", data);
         // console.log("error", error);
@@ -24,14 +24,15 @@ function Login(props) {
             //console.log(`error ${JSON.stringify(error.data)}`);
         } else {
             props.setToken(data.token)
-            //console.log(`data ${JSON.stringify(data.token)}`);
-            navigate("/account");
+            props.setUser(userInfo.username)
+            //console.log(`data ${JSON.stringify(userInfo.username)}`);
+            navigate(`/account`);
         }
     }
 
     const onUserInput = (e) => {
         //console.log(JSON.stringify(user));
-        setUser({...user, [e.target.name]: e.target.value})
+        setUserInfo({...userInfo, [e.target.name]: e.target.value})
     }
 
     return (
@@ -45,14 +46,14 @@ function Login(props) {
           <input
               type="text" 
               name="username" 
-              value={user.username} 
+              value={userInfo.username} 
               onChange={onUserInput}/>
           <br/>
           <label htmlFor="password">Password: </label>
           <input
               type="password" 
               name="password"
-              value={user.password} 
+              value={userInfo.password} 
               onChange={onUserInput}
           />
           <br/>

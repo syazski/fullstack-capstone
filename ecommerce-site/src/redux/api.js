@@ -31,11 +31,25 @@ export const apiSlice = createApi({
                 }, 
             }),
         }),
+        accountDetails: builder.query({
+            query: ({token, id}) => ({
+                url:`/users/${id}`,
+                headers: {
+                    authorization: `Bearer ${token}`,
+                    }, 
+            })
+        }),
+        //fetch all Users
+        fetchUsers: builder.query({
+            query: () => "/users",
+        }),
+        //get product details
         productDetails: builder.query({
             query: ({id}) => ({
                 url:`/products/${id}`,
             })
-        })
+        }),
+        //get cart details
     }),
 });
 
@@ -44,4 +58,6 @@ useRegisterMutation,
 useLoginMutation,
 useFetchProductsQuery,
 useAccountQuery,
+useAccountDetailsQuery,
+useFetchUsersQuery,
 useProductDetailsQuery } = apiSlice;
