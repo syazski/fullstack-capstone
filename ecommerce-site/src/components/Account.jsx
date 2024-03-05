@@ -13,7 +13,7 @@ function Account(props) {
     const {data, error, isLoading} = useFetchUsersQuery();
     console.log("Data", data);
     console.log("Error", error);
-    console.log("isLoading", isLoading)
+    console.log("isLoading", isLoading);
 
     function isUser(data) {
         return data.username === props.user;
