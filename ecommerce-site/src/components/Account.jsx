@@ -27,14 +27,15 @@ function Account(props) {
     const found = userData.find(isUser);
     setUserData(found);  
 
-if(isLoading) {
-    return <div>Loading Account Details...</div>
-}
+    if(isLoading) {
+        return <div>Loading Account Details...</div>;
+    }
 
-if(error) {
-    return <div>Error</div>
-}
-        return (
+    if(error) {
+        return <div>Error</div>;
+    }
+    
+    return (
             <>
             <h2>Hello, {userData.name.firstname}!</h2>
             <p><strong>Name</strong>: {userData.name.firstname} {userData.name.lastname} </p>
