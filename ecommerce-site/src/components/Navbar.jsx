@@ -23,7 +23,7 @@ function Nav(props) {
       <NavLink to ="/">Homepage</NavLink>
       <NavLink to ="/login">Login</NavLink>
       <NavLink to ="/register">Not a member? <strong>Register Now</strong></NavLink>
-      <NavLink to ="/carts/user/:id">Cart</NavLink>
+      <NavLink to ="/cart">Cart</NavLink>
       </div>
     )
   }

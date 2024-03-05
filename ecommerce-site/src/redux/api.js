@@ -32,11 +32,8 @@ export const apiSlice = createApi({
             }),
         }),
         accountDetails: builder.query({
-            query: ({token, id}) => ({
+            query: (id) => ({
                 url:`/users/${id}`,
-                headers: {
-                    authorization: `Bearer ${token}`,
-                    }, 
             })
         }),
         //fetch all Users
