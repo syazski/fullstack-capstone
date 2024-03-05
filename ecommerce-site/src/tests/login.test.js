@@ -30,12 +30,37 @@ describe ('form', () => {
 		expect(usernameInput[0]).toBeInTheDocument();
 		expect(passwordInput[0]).toBeInTheDocument();
 		expect(submitButton[0]).toBeInTheDocument();
-
-		// fireEvent.change(usernameInput, {target: {value: 'testuser'} });
-		// fireEvent.change(passwordInput, {target: {value: 'testpassword'} });
-		// fireEvent.click(submitButton);
-
-		// const header = screen.getByRole ('heading', {name: /Your Cart/i});
-		// expect (header).toBeInTheDocument();
+	})
 })
-})
+
+// describe ('error', () => {
+// 	const initialState = { 
+// 		username: "", 
+// 		password: "", };
+// 		const mockStore = configureStore();
+// 		let store;
+
+// 	test('login form display errors', () => {
+// 		store = mockStore(initialState);
+// 		render(
+// 		<Provider store={store}>
+// 		<BrowserRouter>
+// 		<Login />
+// 		</BrowserRouter>
+// 		</Provider>
+// 		);
+
+// 		const usernameInput = screen.getAllByLabelText(/username/i);
+// 		const passwordInput = screen.getAllByLabelText(/Password/i);
+// 		const submitButton = screen.getAllByRole("button");
+
+// 		fireEvent.change(usernameInput, {target: {value: 'testuser'} });
+// 		fireEvent.change(passwordInput, {target: {value: 'testpassword'} });
+// 		fireEvent.click(submitButton);
+
+// 		const header = screen.getByText(/Error/i);
+// 		expect (header).toBeInTheDocument();
+
+// 	})
+// })
+

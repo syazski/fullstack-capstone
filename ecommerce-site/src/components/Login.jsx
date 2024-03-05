@@ -42,7 +42,7 @@ function Login(props) {
         <div className='login-wrapper'>
         <h2>Login</h2>
         {/*error message*/}
-        {error ? <p>{error}</p>: <span />}
+        {error ? <p>Error: {error}</p>: <span />}
         <form onSubmit={eventHandler}>
           <label htmlFor="username" aria-label='username'>Username: </label>
           <input
