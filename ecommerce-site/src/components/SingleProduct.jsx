@@ -15,6 +15,7 @@ function SingleProduct() {
 
         //console.log(id);
         console.log(data);
+        console.log({count});
         
         return ( 
                 <>

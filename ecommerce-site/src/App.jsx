@@ -15,6 +15,7 @@ function App() {
   const [id, setId] = useState(null);
   const [token, setToken] = useState(null);
   const [productId, setProductId] = useState(null);
+  const [count, setCount] = useState(0);
 
   //console.log("token", token)
   //console.log("id", id);
@@ -26,7 +27,7 @@ function App() {
     </div>
     <BrowserRouter>
     <nav>
-      <Nav token={token} setToken={setToken} />
+      <Nav token={token} setToken={setToken}/>
     </nav>
       <Routes>
       <Route path="/" element={<Home />} />

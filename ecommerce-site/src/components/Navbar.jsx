@@ -13,7 +13,7 @@ function Nav(props) {
       <div id="navbar">
       <NavLink to ="/">Homepage</NavLink>
       <NavLink to ="/Account">Account</NavLink>
-      <NavLink to ="/Cart">Cart</NavLink>
+      <NavLink to ="/carts/user/:id">Cart</NavLink>
       <a onClick={logoutUser}>Logout</a>
       </div>
       );
@@ -23,6 +23,7 @@ function Nav(props) {
       <NavLink to ="/">Homepage</NavLink>
       <NavLink to ="/login">Login</NavLink>
       <NavLink to ="/register">Not a member? <strong>Register Now</strong></NavLink>
+      <NavLink to ="/carts/user/:id">Cart</NavLink>
       </div>
     )
   }

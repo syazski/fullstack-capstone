@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 function Account(props) {
     console.log(props.user);
     const navigate = useNavigate();
+    
+    //set state from the matching user
     const [userData, setUserData] = useState({
         id: "",
         firstname: "", 
@@ -20,7 +22,7 @@ function Account(props) {
     console.log("Error", error);
     console.log("isLoading", isLoading)
 
-    async function isUser(data) {
+    function isUser(data) {
         return data.username === props.user;
     }
 
