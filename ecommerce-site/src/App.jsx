@@ -16,7 +16,7 @@ function App() {
   const [id, setId] = useState(null);
   const [token, setToken] = useState(null);
   const [productId, setProductId] = useState(null);
-  const [count, setCount] = useState(0);
+  const [tempProduct, setTempProduct] = useState(null);
 
   //console.log("token", token)
   //console.log("id", id);
@@ -35,7 +35,7 @@ function App() {
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
       <Route path="/account" element={<Account user={user}/>} />
-      <Route path="/cart" element={<TempCart />} />
+      <Route path="/cart" element={<TempCart tempProduct={tempProduct}/>} />
       <Route path="/carts/user/:id" element={<Cart />} />
       <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
