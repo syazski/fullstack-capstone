@@ -17,13 +17,13 @@ function Account(props) {
     
     const {data, error, isLoading} = useFetchUsersQuery();
     console.log("Data", data);
-    console.log(data)
     console.log("Error", error);
     console.log("isLoading", isLoading)
 
-    function isUser(data) {
+    async function isUser(data) {
         return data.username === props.user;
     }
+
     const found = userData.find(isUser);
     setUserData(found);  
 
