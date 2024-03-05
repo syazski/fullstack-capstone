@@ -4,24 +4,22 @@ import { useAccountQuery, useAccountDetailsQuery, useFetchUsersQuery } from "../
 import { NavLink, useNavigate } from "react-router-dom";
 
 function Account(props) {
-    const [userData, setUserDetails] = useState();
+    const [userData, setUserData] = useState();
     const navigate = useNavigate();
     console.log(props.user)
 
     
     const {data, error, isLoading} = useFetchUsersQuery();
     console.log("Data", data);
-    setUserDetails(data);
-    console.log(userData)
-    //console.log("Error", error);
-    //console.log("isLoading", isLoading)
+    console.log(data)
+    console.log("Error", error);
+    console.log("isLoading", isLoading)
 
-    function isUser(userData) {
-        return userData.username === props.user;
+    function isUser(data) {
+        return data.username === props.user;
     }
     const found = userData.find(isUser);
-    
-    
+    setUserData(found);  
 
 if(isLoading) {
     return <div>Loading Account Details...</div>
@@ -31,19 +29,17 @@ if(error) {
     return <div>Error: {error.message}</div>
 }
 
-// if(props.user){
         return (
             <>
-            <h2>Hello, {found.name.firstname}!</h2>
-            <p><strong>Name</strong>: {found.name.firstname} {found.name.lastname} </p>
-            <p><strong>Email</strong>: {found.email}</p>
-            <p><strong>Address</strong>: {found.address.number} {found.address.street}, {found.address.city}, {found.address.zipcode}</p>
-            <p><strong>Phone</strong>: {found.phone}</p>
+            <h2>Hello, {userData.name.firstname}!</h2>
+            <p><strong>Name</strong>: {userData.name.firstname} {userData.name.lastname} </p>
+            <p><strong>Email</strong>: {userData.email}</p>
+            <p><strong>Address</strong>: {userData.address.number} {userData.address.street}, {userData.address.city}, {userData.address.zipcode}</p>
+            <p><strong>Phone</strong>: {userData.phone}</p>
             <br />
-            <button onClick={() => navigate(`/carts/user/${found.id}`)}>View Your Cart</button>
+            <button onClick={() => navigate(`/carts/user/${userData.id}`)}>View Your Cart</button>
             </>
         );
       } 
-// };
 
 export default Account;

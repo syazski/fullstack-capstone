@@ -27,6 +27,7 @@ function Login(props) {
             props.setToken(data.token)
             props.setUser(userInfo.username)
             //console.log(`data ${JSON.stringify(userInfo.username)}`);
+            
             navigate(`/account`);
         }
     }
