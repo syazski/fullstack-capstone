@@ -8,14 +8,7 @@ function Account(props) {
     const navigate = useNavigate();
     
     //set state from the matching user
-    const [userData, setUserData] = useState({
-        id: "",
-        firstname: "", 
-        lastname: "",
-        email: "",
-        address: "",
-        phone: "",
-    });
+    const [userData, setUserData] = useState();
     
     const {data, error, isLoading} = useFetchUsersQuery();
     console.log("Data", data);
