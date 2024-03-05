@@ -32,7 +32,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
-      <Route path="/account" element={<Account token={token} user={user}/>} />
+      <Route path="/account" element={<Account user={user}/>} />
       <Route path="/carts/user/:id" element={<Cart />} />
       <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>

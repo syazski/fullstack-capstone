@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { useState } from 'react';
 import { useLoginMutation } from '../redux/api';
 import { useNavigate } from 'react-router-dom';
@@ -42,14 +43,14 @@ function Login(props) {
         {/*error message*/}
         {error ? <p>{error}</p>: <span />}
         <form onSubmit={eventHandler}>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username" aria-label='username'>Username: </label>
           <input
               type="text" 
               name="username" 
               value={userInfo.username} 
               onChange={onUserInput}/>
           <br/>
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password" aria-label='password'>Password: </label>
           <input
               type="password" 
               name="password"
