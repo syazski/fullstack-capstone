@@ -41,7 +41,9 @@ export const apiSlice = createApi({
         }),
         //fetch all Users
         fetchUsers: builder.query({
-            query: () => "/users",
+            query: () => ({
+                url:`/users`,
+            }),
         }),
         //get product details
         productDetails: builder.query({
