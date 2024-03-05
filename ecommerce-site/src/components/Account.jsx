@@ -26,7 +26,7 @@ function Account(props) {
         return data.username === props.user;
     }
 
-    const found = userData.find(isUser);
+    const found = data.find(isUser);
     setUserData(found);  
 
     if(isLoading) {

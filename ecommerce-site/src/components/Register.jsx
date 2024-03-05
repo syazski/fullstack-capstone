@@ -86,6 +86,7 @@ function Register(props) {
         onChange={onUserInput}
         />
         <br/>
+        <br/>
         <button>Register</button>
       </form>
       </div>
