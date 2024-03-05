@@ -1,13 +1,19 @@
 import "../index.css";
 import { useState } from "react";
-import { useAccountQuery, useAccountDetailsQuery, useFetchUsersQuery } from "../redux/api";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useFetchUsersQuery } from "../redux/api";
+import { useNavigate } from "react-router-dom";
 
 function Account(props) {
-    const [userData, setUserData] = useState();
+    console.log(props.user);
     const navigate = useNavigate();
-    console.log(props.user)
-
+    const [userData, setUserData] = useState({
+        id: "",
+        firstname: "", 
+        lastname: "",
+        email: "",
+        address: "",
+        phone: "",
+    });
     
     const {data, error, isLoading} = useFetchUsersQuery();
     console.log("Data", data);
@@ -26,9 +32,8 @@ if(isLoading) {
 }
 
 if(error) {
-    return <div>Error: {error.message}</div>
+    return <div>Error</div>
 }
-
         return (
             <>
             <h2>Hello, {userData.name.firstname}!</h2>
