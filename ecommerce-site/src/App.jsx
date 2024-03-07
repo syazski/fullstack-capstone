@@ -20,7 +20,7 @@ function App() {
   const [userId, setUserId] = useState(null);
 
   //console.log("token", token)
-  //console.log("id", id);
+  //console.log("userId", userId);
   
   return (
     <div>
@@ -37,7 +37,7 @@ function App() {
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
       <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
       <Route path="/cart" element={<TempCart tempProduct={tempProduct}/>} />
-      <Route path="/carts/user/:id" element={<Cart />} />
+      <Route path="/carts/user/:id" element={<Cart userId={userId}/>} />
       <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
     </BrowserRouter>

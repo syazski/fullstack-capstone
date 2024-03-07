@@ -9,6 +9,15 @@ function Cart(props) {
     console.log("Error", error);
     console.log("isLoading", isLoading)
 
+    if(isLoading) {
+        return <div>Getting your cart...</div>;
+    }
+
+    if(error) {
+        return <div>Error!</div>;
+    }
+
+    if(data) {
 return (
     <>
     <h2>Your Cart</h2>
@@ -23,6 +32,12 @@ return (
     }
     </>
 )
+    }
+    return (
+        <>
+        <p>Something went wrong</p>
+        </>
+    )
 
 }
 

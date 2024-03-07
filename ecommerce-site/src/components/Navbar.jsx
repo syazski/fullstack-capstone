@@ -7,13 +7,17 @@ function Nav(props) {
       props.setToken(null);
       navigate("/");
     }
+
+    const latestCart = () => {
+      navigate(`/carts/user/${props.userId}`)
+    }
     
     if(props.token){
       return (
       <div id="navbar">
       <NavLink to ="/">Homepage</NavLink>
       <NavLink to ="/Account">Account</NavLink>
-      <NavLink to ="/carts/user/:id">Cart</NavLink>
+      <a onClick={latestCart}>Cart</a>
       <a onClick={logoutUser}>Logout</a>
       </div>
       );
