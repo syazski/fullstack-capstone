@@ -17,6 +17,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [productId, setProductId] = useState(null);
   const [tempProduct, setTempProduct] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   //console.log("token", token)
   //console.log("id", id);
@@ -28,13 +29,13 @@ function App() {
     </div>
     <BrowserRouter>
     <nav>
-      <Nav token={token} setToken={setToken}/>
+      <Nav token={token} setToken={setToken} userId={userId}/>
     </nav>
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
-      <Route path="/account" element={<Account user={user}/>} />
+      <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
       <Route path="/cart" element={<TempCart tempProduct={tempProduct}/>} />
       <Route path="/carts/user/:id" element={<Cart />} />
       <Route path="/products/:id" element={<SingleProduct />} />

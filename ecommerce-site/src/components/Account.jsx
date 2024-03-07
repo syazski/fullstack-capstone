@@ -1,24 +1,17 @@
 import "../index.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useDebugValue } from "react";
 import { useFetchUsersQuery } from "../redux/api";
 import { useNavigate } from "react-router-dom";
 
 function Account(props) {
-    console.log(props.user);
     const navigate = useNavigate();
     
-    //set state from the matching user
+    //fetch all users
     const {data, error, isLoading} = useFetchUsersQuery();
-
     console.log("Data", data);
     console.log("Error", error);
     console.log("isLoading", isLoading);
 
-    // function isUser(data) {
-    //     return data.username === props.user;
-    // }
-    // const found = data.find(isUser);
-    // setUserData(found);  
 
     if(isLoading) {
         return <div>Loading Account Details...</div>;
@@ -27,10 +20,13 @@ function Account(props) {
     if(error) {
         return <div>Error</div>;
     }
-
+    
+    //set userId state with matched user
     const result = data.find(({ username }) => username === props.user);
-    console.log(result)
-
+    console.log(props);
+    console.log(result.id);
+    props.setUserId(result.id);
+    
     return (
             <>
             <h2>Hello, {result.name.firstname}!</h2>
