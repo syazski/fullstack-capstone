@@ -15,13 +15,12 @@ return (
     {data.map((cart) => {
         return (
             <div>
-            <h2>Cart {cart.id}</h2>
-
+            <h3>Cart {cart.id}</h3>
+            <button>Check out this cart</button>
             </div>
         )
         })
     }
-    <button>Check out this cart</button>
     </>
 )
 
