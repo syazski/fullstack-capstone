@@ -5,6 +5,7 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://fakestoreapi.com"
     }),
+
     endpoints: (builder) => ({
         register: builder.mutation({
             query: (registerUser) => ({
@@ -47,6 +48,11 @@ export const apiSlice = createApi({
             })
         }),
         //get cart details
+        cartDetails: builder.query({
+            query: ({id}) => ({
+                url:`/carts/user/${id}`,
+            })
+        }),
     }),
 });
 
@@ -57,4 +63,5 @@ useFetchProductsQuery,
 useAccountQuery,
 useAccountDetailsQuery,
 useFetchUsersQuery,
-useProductDetailsQuery } = apiSlice;
+useProductDetailsQuery,
+useCartDetailsQuery } = apiSlice;
