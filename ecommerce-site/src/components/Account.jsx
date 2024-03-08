@@ -35,7 +35,7 @@ function Account(props) {
             <p><strong>Address</strong>: {result.address.number} {result.address.street}, {result.address.city}, {result.address.zipcode}</p>
             <p><strong>Phone</strong>: {result.phone}</p>
             <br />
-            <button onClick={() => navigate(`/carts/user/${result.id}`)}>View Your Cart</button>
+            <button onClick={() => navigate(`/carts/user/${props.UserId}`)}>View Your Cart</button>
             </>
         );
       } 

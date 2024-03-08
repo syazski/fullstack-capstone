@@ -7,6 +7,7 @@ import Account from './components/Account';
 import TempCart from './components/TempCart';
 import Cart from './components/Cart';
 import Nav from './components/Navbar';
+import Checkout from './components/Checkout';
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SingleProduct from './components/SingleProduct';
@@ -38,7 +39,8 @@ function App() {
       <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
       <Route path="/cart" element={<TempCart tempProduct={tempProduct}/>} />
       <Route path="/carts/user/:id" element={<Cart userId={userId}/>} />
-      <Route path="/products/:id" element={<SingleProduct />} />
+      <Route path="/products/:id" element={<SingleProduct setTempProduct={setTempProduct}/>} />
+      <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
     </div>
