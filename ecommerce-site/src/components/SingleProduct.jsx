@@ -51,7 +51,7 @@ function SingleProduct(props) {
                         <p><strong>Price:</strong>${data.price}</p>
                         <p><strong>Rating:</strong> {data.rating.rate}</p>
                         <br />
-                        <button>Login to Add to Cart</button>
+                        <button onClick={() => navigate(`/login`)}>Login to Add to Cart</button>
                     </div>
                     </div>
                 </div>
