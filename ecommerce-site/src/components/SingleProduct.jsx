@@ -1,9 +1,10 @@
 import "../index.css"
 import { useProductDetailsQuery } from '../redux/api';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function SingleProduct(props) {
         let { id } = useParams();
+        const navigate = useNavigate();
         const { data, error, isLoading } = useProductDetailsQuery({id});
         
         if (isLoading) {
@@ -15,6 +16,7 @@ function SingleProduct(props) {
 
         //console.log(id);
         console.log(data);
+        
         if(props.token) {
         return ( 
                 <>
@@ -36,8 +38,8 @@ function SingleProduct(props) {
                 </div>
                 </>
         )
-} else {
-        return ( 
+        } else {
+                return ( 
                 <>
                 <h2>Product Details</h2>
                 <div className ="single-products">
