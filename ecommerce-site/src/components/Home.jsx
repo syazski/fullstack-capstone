@@ -5,12 +5,8 @@ import "../index.css"
 
 function Home(props) {
   const {data={}, error, isLoading} = useFetchProductsQuery();
-  //console.log(data)
+
   const navigate = useNavigate();
-
-  const addProduct = (e) => {
-
-  }
 
   if(isLoading) {
     return <div>Loading Products...</div>
@@ -19,32 +15,6 @@ function Home(props) {
 if(error) {
     return <div>Error: {error.message}</div>
 }
-
-if(props.token) {
-  return (
-  <>
-        {/* Search & Filter Bar */}
-        <div className ="products">
-            {data.map((product) => {
-                return (
-                    <div key={product.id} className="product-card">
-                        
-                        <img src={product.image} alt={product.title} className="product-image" />
-                    <div className="product-details">
-                        <p><strong>Item:</strong> {product.title}</p>
-                        <button onClick={() => navigate(`/products/${product.id}`)}>See Details</button>
-                        <br />
-                        <br />
-                        <button onClick={addProduct}>Add to Cart</button>
-                    </div>
-                    </div>
-                )
-            })
-            }
-        </div>
-      </>
-  )} else {
-
   return (
       <>
         {/* Search & Filter Bar */}
@@ -66,7 +36,6 @@ if(props.token) {
       </>
     )
   }
-}
   
 export default Home;
   
