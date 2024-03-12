@@ -1,21 +1,31 @@
 import "../index.css"
 import { useProductDetailsQuery } from '../redux/api';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from "react";
 
 function SingleProduct(props) {
         let { id } = useParams();
+        const [cart, setCart] = useState({
+                id: "",
+                qty: "",
+        });
+
         const navigate = useNavigate();
         const { data, error, isLoading } = useProductDetailsQuery({id});
-        
+
+        const addProduct = (event) => {
+                console.log(event)
+                // need to figure out how to edit quantity
+        }
+
         if (isLoading) {
                 return <p>Loading...</p>;
         }
         if(error) {
                 return <p>Uh Oh!</p>;
         }
-
         //console.log(id);
-        console.log(data);
+        //console.log(data);
         
         if(props.token) {
         return ( 
@@ -32,7 +42,7 @@ function SingleProduct(props) {
                         <p><strong>Price:</strong>${data.price}</p>
                         <p><strong>Rating:</strong> {data.rating.rate}</p>
                         <br />
-                        <button>Add to Cart</button>
+                        <button onClick={() => addProduct(data.id)}>Add to Cart</button>
                     </div>
                     </div>
                 </div>
