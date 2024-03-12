@@ -1,34 +1,38 @@
 import "../index.css";
 import { useParams } from "react-router-dom";
 
-function Checkout(props) {
-    // let { id } = useParams();
-    // const { data, error, isLoading} = useCartDetailsQuery({id});
-    // console.log("Data", data);
-    // console.log("Error", error);
-    // console.log("isLoading", isLoading)
+function Checkout() {
+    const [billing, setBilling] = useState({
+        firstname: "", 
+        lastname: "", 
+        address: "", 
+        });
 
-    // if(isLoading) {
-    //     return <div>Getting your cart...</div>;
-    // }
-
-    // if(error) {
-    //     return <div>Error!</div>;
-    // }
-
-    // if(data) {
 return (
     <>
     <h2>Checkout</h2>
-    {/* {data.map((cart) => {
-        return (
-            <div>
-            <h3>Cart {cart.id}</h3>
-            <button>Check out this cart</button>
-            </div>
-        )
-        })
-    } */}
+    <h3>Billing Information</h3>
+    <form >
+        <label htmlFor="firstname">First Name: </label>
+        <input 
+            type="text" 
+            name="firstname" 
+            />
+        <br/>
+        <label htmlFor="lastname">Last Name: </label>
+        <input 
+            type="lastname" 
+            name="lastname"
+        />
+        <br />
+        <label htmlFor="address">Address: </label>
+        <input 
+        type="address" 
+        name="address"
+        />
+        <br/>
+        <button>Confirm Billing Address</button>
+      </form>
     </>
 )
     // }
