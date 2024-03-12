@@ -6,8 +6,9 @@ function Cart(props) {
     let { id } = useParams();
     const { data, error, isLoading} = useCartDetailsQuery({id});
     console.log("Data", data);
-    console.log("Error", error);
-    console.log("isLoading", isLoading)
+    // console.log("Error", error);
+    // console.log("isLoading", isLoading)
+    //console.log(props.products)
 
     if(isLoading) {
         return <div>Getting your cart...</div>;
@@ -25,11 +26,12 @@ return (
         return (
             <div>
             <h3>Cart {cart.id}</h3>
+                <p>ProductId: {cart.products.id}</p>
+                <p>Quantity: {cart.products.quantity}</p>
             <button>Check out this cart</button>
             </div>
-        )
-        })
-    }
+        )}
+        )}
     </>
 )
     }
