@@ -15,8 +15,21 @@ function SingleProduct(props) {
 
         const addProduct = (event) => {
                 console.log(event)
-                // need to figure out how to edit quantity
+                setCart(prev => {
+                        let cartState = {...prev};
+                        if (cartState.id) {
+                                cartState.id.qty = cartState.id.qty + 1
+                        } else {
+                               cartState.id  = {
+                                id,
+                                qty: 1
+                               }
+                        }
+                        return cartState;
+                })
         }
+
+        console.log(cart)
 
         if (isLoading) {
                 return <p>Loading...</p>;
@@ -42,7 +55,8 @@ function SingleProduct(props) {
                         <p><strong>Price:</strong>${data.price}</p>
                         <p><strong>Rating:</strong> {data.rating.rate}</p>
                         <br />
-                        <button onClick={() => addProduct(data.id)}>Add to Cart</button>
+                        <button onClick={() => addProduct(data.id)}>Add to Cart</button><br />
+                        <button>Remove from Cart</button>
                     </div>
                     </div>
                 </div>
