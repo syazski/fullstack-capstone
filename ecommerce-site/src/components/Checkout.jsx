@@ -1,5 +1,6 @@
 import "../index.css";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 function Checkout() {
     const [billing, setBilling] = useState({
@@ -12,7 +13,7 @@ return (
     <>
     <h2>Checkout</h2>
     <h3>Billing Information</h3>
-    <form >
+    <form>
         <label htmlFor="firstname">First Name: </label>
         <input 
             type="text" 
@@ -31,6 +32,7 @@ return (
         name="address"
         />
         <br/>
+        <br/ >
         <button>Confirm Billing Address</button>
       </form>
     </>

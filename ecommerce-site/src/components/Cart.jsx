@@ -1,9 +1,10 @@
 import "../index.css";
 import { useCartDetailsQuery } from "../redux/api";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Cart(props) {
     let { id } = useParams();
+    const navigate = useNavigate();
     const { data, error, isLoading} = useCartDetailsQuery({id});
     console.log("Data", data);
     // console.log("Error", error);
@@ -19,21 +20,21 @@ function Cart(props) {
     }
 
     if(data) {
-return (
-    <>
-    <h2>Your Cart</h2>
-    {data.map((cart) => {
         return (
-            <div>
-            <h3>Cart {cart.id}</h3>
-                <p>ProductId: {cart.products.id}</p>
-                <p>Quantity: {cart.products.quantity}</p>
-            <button>Check out this cart</button>
-            </div>
-        )}
-        )}
-    </>
-)
+            <>
+            <h2>Your Cart</h2>
+            {data.map((cart) => {
+                return (
+                    <div>
+                    <h3>Cart {cart.id}</h3>
+                        <p>ProductId: {cart.products.id}</p>
+                        <p>Quantity: {cart.products.quantity}</p>
+                    <button onClick={() => navigate(`/checkout`)}>Check out this cart</button>
+                    </div>
+                )}
+                )}
+            </>
+        )
     }
     return (
         <>
