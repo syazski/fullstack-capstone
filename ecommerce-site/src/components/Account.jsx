@@ -23,10 +23,11 @@ function Account(props) {
     
     //set userId state with matched user
     const result = data.find(({ username }) => username === props.user);
-    console.log(props);
-    console.log(result.id);
+    // console.log(props);
+    // console.log(result.id);
     props.setUserId(result.id);
     
+    if(result.id) {
     return (
             <>
             <h2>Hello, {result.name.firstname}!</h2>
@@ -35,9 +36,10 @@ function Account(props) {
             <p><strong>Address</strong>: {result.address.number} {result.address.street}, {result.address.city}, {result.address.zipcode}</p>
             <p><strong>Phone</strong>: {result.phone}</p>
             <br />
-            <button onClick={() => navigate(`/carts/user/${props.UserId}`)}>View Your Cart</button>
+            <button onClick={() => navigate(`/carts/user/${result.id}`)}>View Your Cart</button>
             </>
         );
       } 
+}
 
 export default Account;

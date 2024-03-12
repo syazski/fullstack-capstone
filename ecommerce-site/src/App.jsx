@@ -21,6 +21,7 @@ function App() {
 
   //console.log("token", token)
   //console.log("userId", userId);
+  console.log(tempProduct)
   
   return (
     <div>
@@ -32,7 +33,7 @@ function App() {
       <Nav token={token} setToken={setToken} userId={userId}/>
     </nav>
       <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home token={token} setTempProduct={setTempProduct} />} />
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
       <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
