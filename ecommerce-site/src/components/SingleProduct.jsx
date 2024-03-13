@@ -14,13 +14,14 @@ function SingleProduct(props) {
         const { data, error, isLoading } = useProductDetailsQuery({id});
 
         const addProduct = (event) => {
-                console.log(event)
+                //console.log(event)
                 setCart(prev => {
                         let cartState = {...prev};
                         if (cartState.id) {
-                                cartState.id.qty = cartState.id.qty + 1
-                        } else {
-                               cartState.id  = {
+                                cartState.qty = cartState.qty + 1
+                        } 
+                        else {
+                               cartState  = {
                                 id,
                                 qty: 1
                                }
