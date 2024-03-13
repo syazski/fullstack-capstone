@@ -12,6 +12,12 @@ function Checkout() {
 return (
     <>
     <h2>Checkout</h2>
+    <h3>Items</h3>
+    <div>
+        <p>Products</p>
+        <p>Items</p>
+        <p>Total Cost</p>
+    </div>
     <h3>Billing Information</h3>
     <form>
         <label htmlFor="firstname">First Name: </label>

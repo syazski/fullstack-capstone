@@ -38,7 +38,7 @@ function App() {
       <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
       <Route path="/carts/user/:id" element={<Cart token={token} userId={userId} products={products}/>} />
       <Route path="/products/:id" element={<SingleProduct token={token} setTempProduct={setTempProduct}/>} />
-      <Route path="/checkout" element={<Checkout/>} />
+      <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
     </div>

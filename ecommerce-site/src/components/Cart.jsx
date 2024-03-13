@@ -22,7 +22,7 @@ function Cart(props) {
     if(data) {
         return (
             <>
-            <h2>Your Cart</h2>
+            <h2>Your Carts</h2>
             {data.map((cart) => {
                 return (
                     <div>
@@ -33,6 +33,10 @@ function Cart(props) {
                     </div>
                 )}
                 )}
+            <h3>Latest Cart</h3>
+            <p>ProductId:</p>
+            <p>Quantity</p>
+            <button onClick={() => navigate(`/checkout`)}>Check out this cart</button>
             </>
         )
     }
