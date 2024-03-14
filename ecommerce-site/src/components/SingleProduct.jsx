@@ -5,32 +5,8 @@ import { useState } from "react";
 
 function SingleProduct(props) {
         let { id } = useParams();
-        const [cart, setCart] = useState({
-                id: "",
-                qty: "",
-        });
-
         const navigate = useNavigate();
         const { data, error, isLoading } = useProductDetailsQuery({id});
-
-        const addProduct = (event) => {
-                //console.log(event)
-                setCart(prev => {
-                        let cartState = {...prev};
-                        if (cartState.id) {
-                                cartState.qty = cartState.qty + 1
-                        } 
-                        else {
-                               cartState  = {
-                                id,
-                                qty: 1
-                               }
-                        }
-                        return cartState;
-                })
-        }
-
-        console.log(cart)
 
         if (isLoading) {
                 return <p>Loading...</p>;
@@ -56,8 +32,7 @@ function SingleProduct(props) {
                         <p><strong>Price:</strong>${data.price}</p>
                         <p><strong>Rating:</strong> {data.rating.rate}</p>
                         <br />
-                        <button onClick={() => addProduct(data.id)}>Add to Cart</button><br />
-                        <button>Remove from Cart</button>
+                        <button onClick={() => navigate(`/`)}>Go back</button>
                     </div>
                     </div>
                 </div>

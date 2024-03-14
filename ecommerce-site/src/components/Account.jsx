@@ -30,11 +30,13 @@ function Account(props) {
     if(result.id) {
     return (
             <>
-            <h2>Hello, {result.name.firstname}!</h2>
+            <h2>Account Details</h2>
             <p><strong>Name</strong>: {result.name.firstname} {result.name.lastname} </p>
             <p><strong>Email</strong>: {result.email}</p>
             <p><strong>Address</strong>: {result.address.number} {result.address.street}, {result.address.city}, {result.address.zipcode}</p>
             <p><strong>Phone</strong>: {result.phone}</p>
+            <br />
+            <button onClick={() => navigate(`/`)}>Return to Shop</button><br/>
             <br />
             <button onClick={() => navigate(`/carts/user/${result.id}`)}>View Your Cart</button>
             </>

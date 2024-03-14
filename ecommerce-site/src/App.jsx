@@ -16,11 +16,10 @@ function App() {
   const [id, setId] = useState(null);
   const [token, setToken] = useState(null);
   const [products, setProducts] = useState(null);
-  const [tempProduct, setTempProduct] = useState(null);
+  const [tempProduct, setTempProduct] = useState([]);
   const [userId, setUserId] = useState(null);
 
-  //console.log("token", token)
-  //console.log("userId", userId);
+  console.log("tempProducts", tempProduct)
   
   return (
     <div>
@@ -32,7 +31,7 @@ function App() {
       <Nav token={token} setToken={setToken} userId={userId}/>
     </nav>
       <Routes>
-      <Route path="/" element={<Home setProducts={setProducts}/>}/>
+      <Route path="/" element={<Home token={token} setProducts={setProducts}/>}/>
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
       <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
