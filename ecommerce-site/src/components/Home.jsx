@@ -6,7 +6,6 @@ import "../index.css"
 
 function Home(props) {
   const {data={}, error, isLoading} = useFetchProductsQuery();
-  // const [cart, setCart] = useState();
   const navigate = useNavigate();
 
   const addProduct = (productId) => {
