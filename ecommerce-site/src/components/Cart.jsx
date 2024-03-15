@@ -12,6 +12,19 @@ function Cart(props) {
     console.log("Product list", props.products)
     console.log("Cart Items", props.cartItems)
 
+    const removeProduct = (product) => {
+        console.log("product from click", product)
+        const productInCart = props.cartItems.find((item) => item.product === product);
+        console.log("ProductInCart",productInCart)
+        
+        if (productInCart) {
+          props.setCartItems(
+            props.cartItems.map((item) => item.product === product ? {...productInCart, quantity: productInCart.quantity - 1} : item)
+            );
+          alert(`Item removed from cart!`);
+          } 
+        }
+
     if(isLoading) {
         return <div>Getting your cart...</div>;
     }
@@ -47,7 +60,7 @@ function Cart(props) {
                 if(props.products.id === item.productId) {
                     return (
                     <div className="product-set">
-                    <p>Product: {item.product} | Quantity: {item.quantity}</p>
+                    <p>Product: {item.product} | Quantity: {item.quantity}</p> | <button onClick={() => removeProduct(item.product)}>X</button>
                     </div>
                     )
                 } else {

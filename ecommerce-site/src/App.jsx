@@ -36,7 +36,7 @@ function App() {
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
       <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
-      <Route path="/carts/user/:id" element={<Cart token={token} userId={userId} products={products} cartItems={cartItems}/>} />
+      <Route path="/carts/user/:id" element={<Cart token={token} userId={userId} products={products} cartItems={cartItems} setCartItems={setCartItems}/>} />
       <Route path="/products/:id" element={<SingleProduct token={token}/>} />
       <Route path="/checkout" element={<Checkout />} />
       </Routes>
