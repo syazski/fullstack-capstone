@@ -16,10 +16,11 @@ function App() {
   const [id, setId] = useState(null);
   const [token, setToken] = useState(null);
   const [products, setProducts] = useState(null);
-  const [tempProduct, setTempProduct] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [userId, setUserId] = useState(null);
 
-  console.log("tempProducts", tempProduct)
+  //console.log("All products", products)
+  console.log("Cart Items:", cartItems)
   
   return (
     <div>
@@ -31,12 +32,12 @@ function App() {
       <Nav token={token} setToken={setToken} userId={userId}/>
     </nav>
       <Routes>
-      <Route path="/" element={<Home token={token} setProducts={setProducts}/>}/>
+      <Route path="/" element={<Home token={token} setProducts={setProducts} cartItems={cartItems} setCartItems={setCartItems}/>}/>
       <Route path="/register" element={<Register setId={setId}/>} />
       <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
       <Route path="/account" element={<Account user={user} setUserId={setUserId}/>} />
-      <Route path="/carts/user/:id" element={<Cart token={token} userId={userId} products={products}/>} />
-      <Route path="/products/:id" element={<SingleProduct token={token} setTempProduct={setTempProduct}/>} />
+      <Route path="/carts/user/:id" element={<Cart token={token} userId={userId} products={products} cartItems={cartItems}/>} />
+      <Route path="/products/:id" element={<SingleProduct token={token}/>} />
       <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>

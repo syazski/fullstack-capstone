@@ -9,7 +9,8 @@ function Cart(props) {
     console.log("Data", data);
     // console.log("Error", error);
     // console.log("isLoading", isLoading)
-    //console.log(props.products)
+    console.log(props.products)
+    console.log(props.cartItems)
 
     if(isLoading) {
         return <div>Getting your cart...</div>;
@@ -18,6 +19,9 @@ function Cart(props) {
     if(error) {
         return <div>Error!</div>;
     }
+
+    const cartDetails = props.products.find((product) => product.id === props.cartItems.productId);
+    console.log(cartDetails)
 
     if(data) {
         return (
@@ -34,8 +38,8 @@ function Cart(props) {
                 )}
                 )}
             <h3>Latest Cart</h3>
-            <p>ProductId:</p>
-            <p>Quantity</p>
+                    <p>ProductId:</p>
+                    <p>Quantity</p>
             <button onClick={() => navigate(`/checkout`)}>Check out this cart</button>
             </>
         )

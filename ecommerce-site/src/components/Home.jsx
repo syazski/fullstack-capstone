@@ -6,29 +6,43 @@ import "../index.css"
 
 function Home(props) {
   const {data={}, error, isLoading} = useFetchProductsQuery();
-  const [cart, setCart] = useState();
+  // const [cart, setCart] = useState();
   const navigate = useNavigate();
 
-  const addProduct = (item) => {
-            let cartState = {
-              id: "",
-              qty: ""
-            };
-            if (item.id) {
-                    cartState.qty = cartState.qty + 1
-            } 
-            else {
-                   cartState  = {
-                    id: item,
-                    qty: 1
-                  }
-                  //console.log(cartState)
-                  return setCart(cartState);
-                }
-              }
-      console.log(cart);
-              
+  // const addProduct = (item) => {
+  //           let cartState = {
+  //             id: "",
+  //             qty: ""
+  //           };
+  //           if (item.id) {
+  //                   cartState.qty = cartState.qty + 1
+  //           } 
+  //           else {
+  //                  cartState  = {
+  //                   id: item,
+  //                   qty: 1
+  //                 }
+  //                 //console.log(cartState)
+  //                 return setCart(cartState);
+  //               }
+  //             }
+  //     console.log(cart);
 
+  const addProduct = (productId) => {
+    const productInCart = props.cartItems.find((item) => item.id === productId);
+    if (productInCart) {
+      props.setCartItems(
+        props.cartItems.map((item) =>
+          item.id === productId ? {...productInCart, quantity: productInCart.quantity + 1} : item
+        )
+      );
+      alert(`Item added to cart!`);
+      } else {
+        props.setCartItems([...props.cartItems, {productId, quantity: 1}]);
+        alert(`Item added to cart!`);
+      }
+    }
+              
 if(isLoading) {
     return <div>Loading Products...</div>
 }
