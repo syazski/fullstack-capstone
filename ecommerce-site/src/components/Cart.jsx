@@ -36,7 +36,8 @@ function Cart(props) {
                         </div>
                     )}
             )}
-                    <button onClick={() => navigate(`/checkout`)}>Check out this cart</button>
+                    <button onClick={() => navigate(`/checkout`)}>Check out this cart</button><br/>
+                    <br />
                     <hr />
                     </div>
                 )}
