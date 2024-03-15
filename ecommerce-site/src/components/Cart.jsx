@@ -60,7 +60,7 @@ function Cart(props) {
                 if(props.products.id === item.productId) {
                     return (
                     <div className="product-set">
-                    <p>Product: {item.product} | Quantity: {item.quantity}</p> | <button onClick={() => removeProduct(item.product)}>X</button>
+                    <p>Product: {item.product} | Quantity: {item.quantity}   <button onClick={() => removeProduct(item.product)}>X</button></p>
                     </div>
                     )
                 } else {
