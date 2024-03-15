@@ -8,18 +8,19 @@ function Home(props) {
   const {data={}, error, isLoading} = useFetchProductsQuery();
   const navigate = useNavigate();
 
-  const addProduct = (productId) => {
-    const productInCart = props.cartItems.find((item) => item.id === productId);
+  const addProduct = (product) => {
+    console.log("product from click", product)
+    const productInCart = props.cartItems.find((item) => item.product === product);
+    console.log("ProductInCart",productInCart)
+    
     if (productInCart) {
       props.setCartItems(
-        props.cartItems.map((item) =>
-          item.id === productId ? {...productInCart, quantity: productInCart.quantity + 1} : item
-        )
-      );
-      alert(`Item added to cart!`);
+        props.cartItems.map((item) => item.product === product ? {...productInCart, quantity: productInCart.quantity + 1} : item)
+        );
+      alert(`Item added to cart first if!`);
       } else {
-        props.setCartItems([...props.cartItems, {productId, quantity: 1}]);
-        alert(`Item added to cart!`);
+        props.setCartItems([...props.cartItems, {product, quantity: 1}]);
+        alert(`Item added to cart with else!`);
       }
     }
               
