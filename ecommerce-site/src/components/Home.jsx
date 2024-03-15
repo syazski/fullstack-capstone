@@ -17,10 +17,10 @@ function Home(props) {
       props.setCartItems(
         props.cartItems.map((item) => item.product === product ? {...productInCart, quantity: productInCart.quantity + 1} : item)
         );
-      alert(`Item added to cart first if!`);
+      alert(`Item added to cart!`);
       } else {
         props.setCartItems([...props.cartItems, {product, quantity: 1}]);
-        alert(`Item added to cart with else!`);
+        alert(`New item added to cart!`);
       }
     }
               
