@@ -1,5 +1,5 @@
 import "../index.css";
-import { useCartDetailsQuery } from "../redux/api";
+import { useCartDetailsQuery} from "../redux/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Cart(props) {
@@ -10,7 +10,7 @@ function Cart(props) {
     // console.log("Error", error);
     // console.log("isLoading", isLoading)
     console.log(props.products)
-    console.log(props.cartItems)
+    console.log(props.cartItems.productId)
 
     if(isLoading) {
         return <div>Getting your cart...</div>;
@@ -20,8 +20,8 @@ function Cart(props) {
         return <div>Error!</div>;
     }
 
-    const cartDetails = props.products.find((product) => product.id === props.cartItems.productId);
-    console.log(cartDetails)
+    // const cartDetails = props.products.find((product) => product.id === props.cartItems.productId);
+    // console.log(cartDetails)
 
     if(data) {
         return (
@@ -31,9 +31,17 @@ function Cart(props) {
                 return (
                     <div>
                     <h3>Cart {cart.id}</h3>
-                        <p>ProductId: {cart.products.id}</p>
-                        <p>Quantity: {cart.products.quantity}</p>
+                    {cart.products.map((item) => {
+                    // const itemfound = props.find
+                    return (
+                        <div className="product-set">
+                        <p>ProductId: {item.productId}</p>
+                        <p>Quantity: {item.quantity}</p>
+                        </div>
+                    )}
+            )}
                     <button onClick={() => navigate(`/checkout`)}>Check out this cart</button>
+                    <hr />
                     </div>
                 )}
                 )}

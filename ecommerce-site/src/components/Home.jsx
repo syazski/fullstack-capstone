@@ -9,25 +9,6 @@ function Home(props) {
   // const [cart, setCart] = useState();
   const navigate = useNavigate();
 
-  // const addProduct = (item) => {
-  //           let cartState = {
-  //             id: "",
-  //             qty: ""
-  //           };
-  //           if (item.id) {
-  //                   cartState.qty = cartState.qty + 1
-  //           } 
-  //           else {
-  //                  cartState  = {
-  //                   id: item,
-  //                   qty: 1
-  //                 }
-  //                 //console.log(cartState)
-  //                 return setCart(cartState);
-  //               }
-  //             }
-  //     console.log(cart);
-
   const addProduct = (productId) => {
     const productInCart = props.cartItems.find((item) => item.id === productId);
     if (productInCart) {
