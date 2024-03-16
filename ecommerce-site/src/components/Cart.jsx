@@ -12,8 +12,8 @@ function Cart(props) {
     console.log("Product list", props.products)
     console.log("Cart Items", props.cartItems)
 
-    //function to find matching values, return the images
-    
+    //function to find matching values, return the images & price list
+
 
     const removeProduct = (product) => {
         console.log("product from click", product)
