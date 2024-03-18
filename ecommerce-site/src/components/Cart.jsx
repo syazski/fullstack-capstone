@@ -15,11 +15,9 @@ function Cart(props) {
   //function to find matching values, return the images & price list
 
   const removeProduct = (product) => {
-    console.log("product from click", product);
     const productInCart = props.cartItems.find(
       (item) => item.product === product
     );
-    console.log("ProductInCart", productInCart);
 
     if (productInCart) {
       let output = [];
@@ -29,7 +27,6 @@ function Cart(props) {
           : output.push({ ...item, quantity: item.quantity - 1 })
       );
       output = output.filter((item) => item.quantity >= 1);
-      //   console.log("********", output);
       props.setCartItems(output);
       alert(`Item removed from cart!`);
     }
