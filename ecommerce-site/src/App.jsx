@@ -18,9 +18,8 @@ function App() {
   const [products, setProducts] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [userId, setUserId] = useState(null);
-
-  //console.log("All products", products)
-  console.log("Cart Items:", cartItems)
+  
+  //console.log("Cart Items:", cartItems)
   
   return (
     <div>

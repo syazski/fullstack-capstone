@@ -34,7 +34,6 @@ function Login(props) {
     }
 
     const onUserInput = (e) => {
-        //console.log(JSON.stringify(user));
         setUserInfo({...userInfo, [e.target.name]: e.target.value})
     }
 
