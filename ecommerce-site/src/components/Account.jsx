@@ -8,9 +8,6 @@ function Account(props) {
 
   //fetch all users
   const { data, error, isLoading } = useFetchUsersQuery();
-  console.log("Data", data);
-  console.log("Error", error);
-  console.log("isLoading", isLoading);
 
   if (isLoading) {
     return <div>Loading Account Details...</div>;
@@ -22,8 +19,6 @@ function Account(props) {
 
   //set userId state with matched user
   const result = data.find(({ username }) => username === props.user);
-  // console.log(props);
-  // console.log(result.id);
   props.setUserId(result.id);
 
   if (result.id) {
