@@ -6,13 +6,6 @@ function Cart(props) {
   let { id } = useParams();
   const navigate = useNavigate();
   const { data, error, isLoading } = useCartDetailsQuery({ id });
-  //console.log("Data", data);
-  // console.log("Error", error);
-  // console.log("isLoading", isLoading)
-  console.log("Product list", props.products);
-  console.log("Cart Items", props.cartItems);
-
-  //function to find matching values, return the images & price list
 
   const removeProduct = (product) => {
     const productInCart = props.cartItems.find(
