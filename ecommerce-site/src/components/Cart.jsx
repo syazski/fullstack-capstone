@@ -29,7 +29,7 @@ function Cart(props) {
           : output.push({ ...item, quantity: item.quantity - 1 })
       );
       output = output.filter((item) => item.quantity >= 1);
-    //   console.log("********", output);
+      //   console.log("********", output);
       props.setCartItems(output);
       alert(`Item removed from cart!`);
     }
