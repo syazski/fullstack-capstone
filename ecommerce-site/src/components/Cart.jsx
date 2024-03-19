@@ -42,7 +42,6 @@ function Cart(props) {
             <div key={cart.id}>
               <h3>Cart {cart.id}</h3>
               {cart.products.map((item) => {
-                // const itemfound = props.find
                 return (
                   <div className="product-set">
                     <p>
@@ -71,10 +70,10 @@ function Cart(props) {
                 </p>
               </div>
             );
-          } else {
-            console.log("here");
           }
         })}
+        <p><strong>Total Cost of Cart:</strong></p>
+        {/* {props.products.find((items) => props.cartItems.product === items.id)} */}
 
         <button onClick={() => navigate(`/checkout`)}>
           Check out this cart
