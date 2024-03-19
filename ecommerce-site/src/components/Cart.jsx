@@ -1,6 +1,7 @@
 import "../index.css";
 import { useCartDetailsQuery } from "../redux/api";
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 function Cart(props) {
   let { id } = useParams();
@@ -60,7 +61,7 @@ function Cart(props) {
           );
         })}
         <h3>Latest Cart</h3>
-        {props.cartItems.map((item) => {
+        {props.cartItems.length != 0 ? props.cartItems.map((item) => {
           if (props.products.id === item.productId) {
             return (
               <div className="product-set">
@@ -68,16 +69,14 @@ function Cart(props) {
                   Product: {item.product} | Quantity: {item.quantity}{" "}
                   <button onClick={() => removeProduct(item.product)}>X</button>
                 </p>
-              </div>
-            );
-          }
-        })}
-        <p><strong>Total Cost of Cart:</strong></p>
-        {/* {props.products.find((items) => props.cartItems.product === items.id)} */}
-
-        <button onClick={() => navigate(`/checkout`)}>
+                <p><strong>Total Cost:</strong></p>
+                <button onClick={() => navigate(`/checkout`)}>
           Check out this cart
         </button>
+              </div>
+            )}
+        }) : "Please add items to this cart"
+      }
       </>
     );
   }

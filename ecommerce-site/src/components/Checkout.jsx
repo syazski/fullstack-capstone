@@ -35,7 +35,8 @@ function Checkout(props) {
         </form>
         <hr />
       {billing.address ? 
-      <div><h3>Summary</h3>
+      <div>
+      <h3>Summary</h3>
       <strong>First Name:</strong> {billing.firstname}<br/> 
       <strong>Last Name:</strong> {billing.lastname}<br/> 
       <strong>Address:</strong> {billing.address}<br />
