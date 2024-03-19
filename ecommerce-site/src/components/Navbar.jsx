@@ -26,9 +26,9 @@ function Nav(props) {
     <div id="navbar">
       <NavLink to="/">Homepage</NavLink>
       <NavLink to="/login">Login</NavLink>
-      <NavLink to="/register">
+      {/* <NavLink to="/register">
         Not a member? <strong>Register Now</strong>
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 }
