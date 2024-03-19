@@ -19,7 +19,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [userId, setUserId] = useState(null);
 
-  //console.log("Cart Items:", cartItems)
+  console.log("Cart Items:", cartItems)
 
   return (
     <div>
@@ -70,7 +70,7 @@ function App() {
             path="/products/:id"
             element={<SingleProduct token={token} />}
           />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout cartItems={cartItems}/>} />
         </Routes>
       </BrowserRouter>
     </div>
