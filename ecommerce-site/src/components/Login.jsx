@@ -64,6 +64,7 @@ function Login(props) {
             onChange={onUserInput}
           />
           <br />
+          <br />
           <button>Login</button>
         </form>
       </div>
