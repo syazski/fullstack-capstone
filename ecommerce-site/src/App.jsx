@@ -19,8 +19,6 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [userId, setUserId] = useState(null);
 
-  console.log("Cart Items:", cartItems)
-
   return (
     <div>
       <div className="logo">

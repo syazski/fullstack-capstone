@@ -6,7 +6,13 @@ import "../index.css";
 
 function Home(props) {
   const { data = {}, error, isLoading } = useFetchProductsQuery();
+  const [filteredproducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
+
+  const handleChange = (value) => {
+    const result = data.filter((product) => {return product.title.toLowerCase().includes(value)})
+    setFilteredProducts(result);
+  }
 
   const addProduct = (product) => {
     const productInCart = props.cartItems.find(
@@ -43,7 +49,6 @@ function Home(props) {
   if (props.token) {
     return (
       <>
-        {/* Search & Filter Bar TBD */}
         <div className="products">
           {data.map((product) => {
             return (
@@ -73,10 +78,49 @@ function Home(props) {
         </div>
       </>
     );
-  } else {
+  } 
+  
+  if(filteredproducts.length !=0) {
     return (
       <>
-        {/* Search & Filter Bar */}
+        <div className="searchbar">
+        <label>Filter by Item </label>
+        <input type="text" placeholder="Search" onChange={(e) => handleChange(e.target.value)}/>
+        </div>
+
+        <div className="products">
+          {filteredproducts.map((product) => {
+            return (
+              <div key={product.id} className="product-card">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="product-image"
+                />
+                <div className="product-details">
+                  <p>
+                    <strong>Item:</strong> {product.title}
+                  </p>
+                  <button onClick={() => navigate(`/products/${product.id}`)}>
+                    See Details
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </>
+    )
+  }
+  
+  else {
+    return (
+      <>
+        <div className="searchbar">
+        <label>Filter by Item </label>
+        <input type="text" placeholder="Search" onChange={(e) => handleChange(e.target.value)}/>
+        </div>
+
         <div className="products">
           {data.map((product) => {
             return (
