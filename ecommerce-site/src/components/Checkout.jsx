@@ -16,10 +16,11 @@ function Checkout(props) {
     }
     setBilling({ ...billing, [e.target.name]: e.target.value });
   };
+
   return (
     <>
       <h2>Checkout</h2>
-      <h3>Billing Information</h3>
+      <h3>Input Billing Information</h3>
       <form>
         <label htmlFor="firstname">First Name: </label>
         <input type="text" name="firstname" onChange={onUserInput} />
@@ -31,13 +32,17 @@ function Checkout(props) {
         <input type="address" name="address" onChange={onUserInput} />
         <br />
         <br />
-      {billing ? 
-      <p><strong>First Name:</strong> {billing.firstname}<br/> 
+        </form>
+        <hr />
+      {billing.address ? 
+      <div><h3>Summary</h3>
+      <strong>First Name:</strong> {billing.firstname}<br/> 
       <strong>Last Name:</strong> {billing.lastname}<br/> 
-      <strong>Address:</strong> {billing.address}</p> 
-      : <span />}
-      <button>Confirm Billing Address</button>
-      </form>
+      <strong>Address:</strong> {billing.address}<br />
+      <br/>
+      <button>Proceed to Payment</button>
+      </div> 
+      : "Please input billing address in the address field above"}
     </>
   )}
 

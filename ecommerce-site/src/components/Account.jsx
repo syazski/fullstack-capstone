@@ -25,6 +25,8 @@ function Account(props) {
     return (
       <>
         <h2>Account Details</h2>
+        <div className="account-card">
+          <div className="account-details">
         <p>
           <strong>Name</strong>: {result.name.firstname} {result.name.lastname}{" "}
         </p>
@@ -46,6 +48,8 @@ function Account(props) {
         <button onClick={() => navigate(`/carts/user/${result.id}`)}>
           View Your Cart
         </button>
+        </div>
+        </div>
       </>
     );
   }

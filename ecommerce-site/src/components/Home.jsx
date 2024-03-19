@@ -49,6 +49,11 @@ function Home(props) {
   if (props.token) {
     return (
       <>
+        <div className="searchbar">
+        <label>Filter by Item </label>
+        <input type="text" placeholder="Search" onChange={(e) => handleChange(e.target.value)}/>
+        </div>
+        
         <div className="products">
           {data.map((product) => {
             return (
