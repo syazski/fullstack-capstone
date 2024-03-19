@@ -13,6 +13,8 @@ function Cart(props) {
       (item) => item.product === product
     );
 
+    //function to calculate cost
+
     if (productInCart) {
       let output = [];
       props.cartItems.map((item) =>
@@ -69,7 +71,7 @@ function Cart(props) {
                   Product: {item.product} | Quantity: {item.quantity}{" "}
                   <button onClick={() => removeProduct(item.product)}>X</button>
                 </p>
-                <p><strong>Total Cost:</strong></p>
+                <p><strong>Total Cost: TBD</strong></p>
                 <button onClick={() => navigate(`/checkout`)}>
           Check out this cart
         </button>
