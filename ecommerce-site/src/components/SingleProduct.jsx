@@ -84,6 +84,9 @@ function SingleProduct(props) {
               <button onClick={() => navigate(`/login`)}>
                 Login to Add to Cart
               </button>
+              <br />
+              <br />
+              <button onClick={() => navigate(`/`)}>Go back</button>
             </div>
           </div>
         </div>
