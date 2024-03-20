@@ -1,5 +1,5 @@
 import "../index.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 function Checkout(props) {
@@ -9,6 +9,12 @@ function Checkout(props) {
     lastname: "",
     address: "",
   });
+  const navigate = useNavigate();
+
+  const payments = () => {
+    alert("Thank you!");
+    navigate(`/`);
+  }
 
   const onUserInput = (e) => {
     if (error) {
@@ -41,7 +47,7 @@ function Checkout(props) {
       <strong>Last Name:</strong> {billing.lastname}<br/> 
       <strong>Address:</strong> {billing.address}<br />
       <br/>
-      <button>Proceed to Payment</button>
+      <button onClick={payments}>Proceed to Payment</button>
       </div> 
       : "Please input billing address in the address field above"}
     </>
