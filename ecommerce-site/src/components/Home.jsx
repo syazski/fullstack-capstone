@@ -53,7 +53,7 @@ function Home(props) {
         <label>Filter by Item </label>
         <input type="text" placeholder="Search" onChange={(e) => handleChange(e.target.value)}/>
         </div>
-        
+
         <div className="products">
           {data.map((product) => {
             return (
@@ -85,7 +85,7 @@ function Home(props) {
     );
   } 
   
-  if(filteredproducts.length !=0) {
+  if(filteredproducts.length != 0) {
     return (
       <>
         <div className="searchbar">
