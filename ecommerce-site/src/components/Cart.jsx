@@ -1,12 +1,13 @@
 import "../index.css";
 import { useCartDetailsQuery } from "../redux/api";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Cart(props) {
   let { id } = useParams();
   const navigate = useNavigate();
   const { data, error, isLoading } = useCartDetailsQuery({ id });
+  const [cost, setCost] = useState("0.00")
 
   const removeProduct = (product) => {
     const productInCart = props.cartItems.find(
@@ -14,7 +15,13 @@ function Cart(props) {
     );
 
     //function to calculate cost
-    
+    // useEffect(() => {
+    //   let prices = [];
+    //   props.cartItems.find((item) => { 
+    //     if(item.product == product){prices.push(item.product.price)}
+    //     console.log(prices);
+    //   }
+    //   )}, [])
 
     if (productInCart) {
       let output = [];
@@ -76,7 +83,7 @@ function Cart(props) {
             )}
         })
         : "Please add items to this cart"}
-        <><p><strong>Total Cost: TBD</strong></p><button onClick={() => navigate(`/checkout`)}>Check out this cart</button></>
+        <><p><strong>Total Cost: ${cost}</strong></p><button onClick={() => navigate(`/checkout`)}>Check out this cart</button></>
       </>
     );
   }
