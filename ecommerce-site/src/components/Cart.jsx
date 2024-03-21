@@ -14,15 +14,6 @@ function Cart(props) {
       (item) => item.product === product
     );
 
-    //function to calculate cost
-    // useEffect(() => {
-    //   let prices = [];
-    //   props.cartItems.find((item) => { 
-    //     if(item.product == product){prices.push(item.product.price)}
-    //     console.log(prices);
-    //   }
-    //   )}, [])
-
     if (productInCart) {
       let output = [];
       props.cartItems.map((item) =>
@@ -72,11 +63,11 @@ function Cart(props) {
         })}
         <h3>Latest Cart</h3>
         {props.cartItems.length != 0 ? props.cartItems.map((item) => {
-          if (props.products.id === item.productId) {
+         if (props.products.id === item.productId) {
             return (
               <div className="product-set">
                 <p>
-                  Product: {item.product} | Quantity: {item.quantity}{" "}
+                  Product: {item.product} | Quantity: {item.quantity} | Price: $0.00   
                   <button onClick={() => removeProduct(item.product)}>X</button>
                 </p>
               </div>
