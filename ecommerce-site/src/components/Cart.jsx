@@ -11,11 +11,11 @@ function Cart(props) {
 
   // useEffect(() => {
   //   let prices = [];
-  //   props.products.find((item) =>
-  //       item.id === props.cartItems.productId
-  //         ? console.log(item.price) : console.log("error"));
+  //   const found = props.products.map(item => {
+  //     item.id === props.cartItems.productId
+  //   });
+  //   prices.push(found);
   //   console.log(prices)}, [props.cartItems.length])
-
 
   const removeProduct = (product) => {
     const productInCart = props.cartItems.find(
