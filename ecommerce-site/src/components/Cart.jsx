@@ -7,7 +7,15 @@ function Cart(props) {
   let { id } = useParams();
   const navigate = useNavigate();
   const { data, error, isLoading } = useCartDetailsQuery({ id });
-  const [cost, setCost] = useState("0.00")
+  const [cost, setCost] = useState("0.00");
+
+  // useEffect(() => {
+  //   let prices = [];
+  //   props.products.find((item) =>
+  //       item.id === props.cartItems.productId
+  //         ? console.log(item.price) : console.log("error"));
+  //   console.log(prices)}, [props.cartItems.length])
+
 
   const removeProduct = (product) => {
     const productInCart = props.cartItems.find(
