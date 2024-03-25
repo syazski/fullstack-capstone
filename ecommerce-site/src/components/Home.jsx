@@ -9,12 +9,14 @@ function Home(props) {
   const [filteredproducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
 
+  //handleChange for the search bar
   const handleChange = (value) => {
     const result = data.filter((product) => {return product.title.toLowerCase().includes(value)})
     setFilteredProducts(result);
   }
 
-  const addProduct = (product) => {
+  //find matching product to useFetchQuery
+  const addProduct = (product, price) => {
     const productInCart = props.cartItems.find(
       (item) => item.product === product
     );
@@ -72,7 +74,7 @@ function Home(props) {
                   </button>
                   <br />
                   <br />
-                  <button onClick={() => addProduct(product.id)}>
+                  <button onClick={() => addProduct(product.id, product.price)}>
                     Add to Cart
                   </button>
                   <br />
